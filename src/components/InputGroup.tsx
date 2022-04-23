@@ -14,7 +14,7 @@ const InputGroup: React.FunctionComponent<Props> = ({ type, name, children }) =>
     />
     <label
       htmlFor={name}
-      className="absolute top-2/4 left-3 -translate-y-1/2 -z-1 duration-300 origin-0">
+      className="absolute top-2/4 left-3 text-grey-text -translate-y-1/2 -z-1 duration-300 origin-0">
       {children}
     </label>
   </div>
