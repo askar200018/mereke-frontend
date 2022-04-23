@@ -4,8 +4,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import Expenses from './pages/Expenses';
 import Invoices from './pages/Invoices';
+import Auth from './pages/Auth';
 
 import './index.scss';
+import Login from './pages/Login';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +17,8 @@ ReactDOM.render(
           <Route path="expenses" element={<Expenses />} />
           <Route path="invoices" element={<Invoices />} />
         </Route>
+        <Route path="auth" element={<Auth />} />
+        <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

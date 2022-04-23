@@ -7,3 +7,28 @@
 * {
   font-family: 'Inter', sans-serif;
 }
+
+.auth-input:focus-within ~ label,
+.auth-input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-5 text-xs text-grey-text;
+}
+
+// input:focus-within ~ label {
+//   @apply text-grey-text;
+// }
+
+.radio-group {
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0
+  }
+  &:hover input ~ .checkmark{
+    @apply border-primary;
+  }
+  & input:checked ~ .checkmark {
+    @apply border-4 border-primary;
+  }
+}

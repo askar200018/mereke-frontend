@@ -16,6 +16,12 @@ module.exports = {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
       },
+      zIndex: {
+        '-1': '-1',
+      },
+      transformOrigin: {
+        0: '0%',
+      },
     },
   },
   plugins: [],
