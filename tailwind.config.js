@@ -7,6 +7,8 @@ module.exports = {
         background: '#F5F5F7',
         'grey-text': '#828282',
         'black-text': '#282828',
+        error: '#FF7485',
+        'error-bg': '#FEF1F0',
       },
       fontSize: {
         overline: '0.625rem',

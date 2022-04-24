@@ -13,10 +13,6 @@
   @apply transform scale-75 -translate-y-5 text-xs text-grey-text;
 }
 
-// input:focus-within ~ label {
-//   @apply text-grey-text;
-// }
-
 .radio-group {
   input {
     position: absolute;

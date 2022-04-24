@@ -1,15 +1,21 @@
-type Props = {
-  type: string;
-  name: string;
-  children: React.ReactNode;
-};
+import React from 'react';
+import { UseFormRegister } from 'react-hook-form';
 
-const InputGroup: React.FunctionComponent<Props> = ({ type, name, children }) => (
-  <div className="relative h-[56px] border-2 rounded mb-4 z-10">
+const InputGroup = React.forwardRef<
+  HTMLInputElement,
+  { children: React.ReactNode; type: string; error?: boolean } & ReturnType<UseFormRegister<any>>
+>(({ onChange, onBlur, name, children, type, error = false }, ref) => (
+  <div
+    className={`
+      relative h-[56px] border-2 rounded z-10 
+      ${error && 'border-b-error'}`}>
     <input
+      ref={ref}
+      onChange={onChange}
+      onBlur={onBlur}
       type={type}
-      name={name}
       placeholder=" "
+      name={name}
       className="auth-input block h-full w-full pt-[25px] px-3 pb-[10px] appearance-none focus:outline-none bg-transparent"
     />
     <label
@@ -18,6 +24,8 @@ const InputGroup: React.FunctionComponent<Props> = ({ type, name, children }) =>
       {children}
     </label>
   </div>
-);
+));
+
+InputGroup.displayName = 'InputGroup';
 
 export default InputGroup;
