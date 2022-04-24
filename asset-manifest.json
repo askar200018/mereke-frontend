@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mereke-frontend/static/css/main.67eeb20c.css",
+    "main.js": "/mereke-frontend/static/js/main.00567c53.js",
+    "static/media/hero.png": "/mereke-frontend/static/media/hero.7fb53b4d3108cad09087.png",
+    "static/media/product-card.png": "/mereke-frontend/static/media/product-card.7b941262d45eb4563413.png",
+    "static/media/logo.svg": "/mereke-frontend/static/media/logo.265b1fb1673c0826257b4739cb8e422c.svg",
+    "static/media/youtube.svg": "/mereke-frontend/static/media/youtube.b211b21050739898fb98f3723eaaec6c.svg",
+    "static/media/instagram.svg": "/mereke-frontend/static/media/instagram.3ded8161d6427eef17ea4d408a3f69b9.svg",
+    "index.html": "/mereke-frontend/index.html",
+    "static/media/profile.svg": "/mereke-frontend/static/media/profile.16d5d099728d86463d3619c446583c75.svg",
+    "static/media/search.svg": "/mereke-frontend/static/media/search.2e28662b0ef651e63735ea99c5fece0d.svg",
+    "static/media/login.svg": "/mereke-frontend/static/media/login.056794262f24a787255156e4e274dcd2.svg",
+    "static/media/facebook.svg": "/mereke-frontend/static/media/facebook.12ed83ccc86df3b045cf4e7cdc354344.svg",
+    "main.67eeb20c.css.map": "/mereke-frontend/static/css/main.67eeb20c.css.map",
+    "main.00567c53.js.map": "/mereke-frontend/static/js/main.00567c53.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.67eeb20c.css",
+    "static/js/main.00567c53.js"
+  ]
+}
