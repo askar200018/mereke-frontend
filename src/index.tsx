@@ -13,12 +13,14 @@ import ProductDetail from './pages/ProductDetail';
 import Category from './pages/Category';
 import Favourites from './pages/Favourites';
 import Profile from './pages/Profile';
+import ScrollToTop from './components/ScrollToTop';
 
 import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="expenses" element={<Expenses />} />
