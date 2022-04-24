@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { ReactComponent as FavouriteIcon } from '../assets/icons/favourite.svg';
+import { ReactComponent as FavouriteFillIcon } from '../assets/icons/favourite-fill.svg';
 import productImage from '../assets/images/product-detail.png';
 
 const ProductCardBig = () => {
+  const [isFavourite, setIsFavourite] = useState(false);
+
   return (
     <div className="flex h-[812px]">
       <div className="w-[626px] bg-background rounded-tl-2xl rounded-bl-2xl">
@@ -73,8 +77,8 @@ const ProductCardBig = () => {
             Добавить в корзину
           </button>
         </div>
-        <button className="absolute top-6 right-6">
-          <FavouriteIcon />
+        <button className="absolute top-6 right-6" onClick={() => setIsFavourite(!isFavourite)}>
+          {isFavourite ? <FavouriteFillIcon /> : <FavouriteIcon />}
         </button>
       </div>
     </div>
