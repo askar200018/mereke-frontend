@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mereke-frontend/static/css/main.67eeb20c.css",
-    "main.js": "/mereke-frontend/static/js/main.00567c53.js",
+    "main.js": "/mereke-frontend/static/js/main.9bb6d07c.js",
     "static/media/hero.png": "/mereke-frontend/static/media/hero.7fb53b4d3108cad09087.png",
     "static/media/product-card.png": "/mereke-frontend/static/media/product-card.7b941262d45eb4563413.png",
     "static/media/logo.svg": "/mereke-frontend/static/media/logo.265b1fb1673c0826257b4739cb8e422c.svg",
@@ -13,10 +13,10 @@
     "static/media/login.svg": "/mereke-frontend/static/media/login.056794262f24a787255156e4e274dcd2.svg",
     "static/media/facebook.svg": "/mereke-frontend/static/media/facebook.12ed83ccc86df3b045cf4e7cdc354344.svg",
     "main.67eeb20c.css.map": "/mereke-frontend/static/css/main.67eeb20c.css.map",
-    "main.00567c53.js.map": "/mereke-frontend/static/js/main.00567c53.js.map"
+    "main.9bb6d07c.js.map": "/mereke-frontend/static/js/main.9bb6d07c.js.map"
   },
   "entrypoints": [
     "static/css/main.67eeb20c.css",
-    "static/js/main.00567c53.js"
+    "static/js/main.9bb6d07c.js"
   ]
 }
