@@ -5,9 +5,10 @@ import App from './App';
 import Expenses from './pages/Expenses';
 import Invoices from './pages/Invoices';
 import Auth from './pages/Auth';
+import Login from './pages/Login';
+import Home from './pages/Home';
 
 import './index.scss';
-import Login from './pages/Login';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.render(
         <Route path="/" element={<App />}>
           <Route path="expenses" element={<Expenses />} />
           <Route path="invoices" element={<Invoices />} />
+          <Route index element={<Home />} />
         </Route>
         <Route path="auth" element={<Auth />} />
         <Route path="login" element={<Login />} />
