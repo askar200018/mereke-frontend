@@ -10,7 +10,7 @@
 
 .auth-input:focus-within ~ label,
 .auth-input:not(:placeholder-shown) ~ label {
-  @apply transform scale-75 -translate-y-5 text-xs text-grey-text;
+  @apply transform scale-75 -translate-y-5 text-xs text-grey-text z-10;
 }
 
 .radio-group {

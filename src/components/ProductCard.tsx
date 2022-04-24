@@ -3,7 +3,7 @@ import productImage from '../assets/images/product-card.png';
 const ProductCard = () => {
   return (
     <div className="inline-flex h-[360px]">
-      <div className="w-[300px] bg-background">
+      <div className="w-[300px] bg-background rounded-tl-2xl rounded-bl-2xl">
         <img src={productImage} alt="Product Image" className="w-full h-full rounded-2xl" />
       </div>
       <div className="w-[320px] pt-6 pr-6 pl-7 bg-background rounded-tr-2xl rounded-br-2xl">

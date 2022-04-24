@@ -1,30 +1,37 @@
+import { NavLink } from 'react-router-dom';
 import { ReactComponent as ProfileIcon } from '../assets/icons/profile.svg';
 
 const Navbar = () => {
+  // const navLinks = ['Главная', 'Каталог', 'Избранное', 'Корзина'];
   return (
     <div className="bg-background">
       <nav className="container mx-auto flex items-center justify-between h-10">
         <ul className="flex space-x-6">
           <li>
-            <a className="text-sm text-primary cursor-pointer hover:text-primary">Главная</a>
+            <NavLink
+              className={({ isActive }) => `
+                text-sm cursor-pointer hover:text-primary
+                ${isActive ? 'text-primary' : 'text-black-text'}
+              `}
+              to="/">
+              Главная
+            </NavLink>
           </li>
           <li>
-            <a className="text-sm text-black-text cursor-pointer hover:text-primary">Рестораны</a>
-          </li>
-          <li>
-            <a className="text-sm text-black-text cursor-pointer hover:text-primary">Певцы</a>
-          </li>
-          <li>
-            <a className="text-sm text-black-text cursor-pointer hover:text-primary">Танцоры</a>
+            <NavLink
+              to="/catalog"
+              className={({ isActive }) => `
+                text-sm cursor-pointer hover:text-primary
+                ${isActive ? 'text-primary' : 'text-black-text'}
+              `}>
+              Каталог
+            </NavLink>
           </li>
           <li>
             <a className="text-sm text-black-text cursor-pointer hover:text-primary">Избранное</a>
           </li>
           <li>
             <a className="text-sm text-black-text cursor-pointer hover:text-primary">Корзина</a>
-          </li>
-          <li>
-            <a className="text-sm text-black-text cursor-pointer hover:text-primary">Новости</a>
           </li>
         </ul>
         <div className="flex items-center space-x-4">

@@ -10,7 +10,9 @@ const TopBar = () => {
     <div>
       <div className="relative flex justify-between items-center container mx-auto py-2">
         <div>
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
         </div>
         <div className="flex items-center justify-between w-[255px]">
           <div className="flex space-x-3">
