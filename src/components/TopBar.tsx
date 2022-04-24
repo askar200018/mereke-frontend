@@ -14,8 +14,8 @@ const TopBar = () => {
             <Logo />
           </Link>
         </div>
-        <div className="flex items-center justify-between w-[255px]">
-          <div className="flex space-x-3">
+        <div className="flex items-center justify-end w-[255px]">
+          {/* <div className="flex space-x-3">
             <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
               <FacebookIcon className="fill-grey-text hover:fill-blue-600" />
             </a>
@@ -25,7 +25,7 @@ const TopBar = () => {
             <a href="https://www.youtube.com/" target="_blank" rel="noreferrer">
               <InstagramIcon className="fill-grey-text hover:fill-rose-500" />
             </a>
-          </div>
+          </div> */}
           <div>
             <Link to="/auth" className="flex space-x-2 cursor-pointer">
               <span className="text-sm font-normal text-primary">Войти</span>
@@ -33,7 +33,7 @@ const TopBar = () => {
             </Link>
           </div>
         </div>
-        <div className="absolute w-[1px] h-[89px] bg-grey-text top-0 right-[264px]"></div>
+        <div className="absolute w-[1px] h-[89px] bg-grey-text top-0 right-[128px]"></div>
       </div>
     </div>
   );

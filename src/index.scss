@@ -32,3 +32,15 @@
 .hero {
   background-image: url('./assets/images/hero.png');
 }
+
+
+.profile-link {
+  &_active {
+    svg {
+      @apply stroke-primary;
+    }
+    span {
+      @apply text-primary;
+    }
+  }
+}

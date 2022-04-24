@@ -9,9 +9,8 @@ const Catalog = () => {
     if (!params.category) {
       navigate('/catalog/restaurants');
     }
-  }, []);
+  }, [params.category]);
 
-  console.log({ params });
   const breadcrumbs = ['Каталог', 'Рестораны'];
   return (
     <div className="pt-4 pb-20">

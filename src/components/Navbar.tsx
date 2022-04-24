@@ -36,12 +36,17 @@ const Navbar = () => {
         </ul>
         <div className="flex items-center space-x-4">
           <div>
-            <a className="flex items-center space-x-2">
-              <ProfileIcon />
-              <span className="text-sm text-black-text">Мой профиль</span>
-            </a>
+            <NavLink
+              to="/profile"
+              className={({ isActive }) => `
+                group profile-link flex items-center space-x-2 cursor-pointer
+                ${isActive ? 'profile-link_active' : undefined}
+              `}>
+              <ProfileIcon className="icon stroke-black-text group-hover:stroke-primary" />
+              <span className="text-sm text-black-text group-hover:text-primary">Мой профиль</span>
+            </NavLink>
           </div>
-          <div className="w-[1px] h-5 bg-grey-text"></div>
+          {/* <div className="w-[1px] h-5 bg-grey-text"></div>
           <ul className="flex space-x-5">
             <li>
               <button
@@ -67,7 +72,7 @@ const Navbar = () => {
                 Eng
               </button>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </nav>
     </div>
