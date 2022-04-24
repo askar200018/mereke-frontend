@@ -1,4 +1,4 @@
-import Breadcrumbs from './Breadcrumbs';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const Profile = () => {
   const breadcrumbs = ['Профиль', 'Личные данные'];

@@ -78,7 +78,7 @@ const ProductCardBig = () => {
           </button>
         </div>
         <button className="absolute top-6 right-6" onClick={() => setIsFavourite(!isFavourite)}>
-          {isFavourite ? <FavouriteFillIcon /> : <FavouriteIcon />}
+          <FavouriteIcon className={`${isFavourite ? 'fill-primary' : ''} stroke-primary`} />
         </button>
       </div>
     </div>

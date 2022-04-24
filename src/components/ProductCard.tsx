@@ -1,8 +1,13 @@
 import productImage from '../assets/images/product-card.png';
+import { ReactComponent as FavouriteIcon } from '../assets/icons/favourite.svg';
 
-const ProductCard = () => {
+type Props = {
+  showFavourite?: boolean;
+};
+
+const ProductCard = ({ showFavourite = false }: Props) => {
   return (
-    <div className="inline-flex h-[360px]">
+    <div className="relative inline-flex h-[360px]">
       <div className="w-[300px] bg-background rounded-tl-2xl rounded-bl-2xl">
         <img src={productImage} alt="Product Image" className="w-full h-full rounded-2xl" />
       </div>
@@ -26,6 +31,11 @@ const ProductCard = () => {
           музыкальное сопровождение, ведущий (тамада), фотосъёмка, видеосъёмка, оформление зала
         </p>
       </div>
+      {showFavourite && (
+        <button className="absolute top-6 right-6">
+          <FavouriteIcon className="fill-primary stroke-primary" />
+        </button>
+      )}
     </div>
   );
 };

@@ -28,7 +28,14 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <a className="text-sm text-black-text cursor-pointer hover:text-primary">Избранное</a>
+            <NavLink
+              to="favourites"
+              className={({ isActive }) => `
+                text-sm cursor-pointer hover:text-primary
+                ${isActive ? 'text-primary' : 'text-black-text'}
+              `}>
+              Избранное
+            </NavLink>
           </li>
           <li>
             <a className="text-sm text-black-text cursor-pointer hover:text-primary">Корзина</a>
