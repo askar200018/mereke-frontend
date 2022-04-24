@@ -22,17 +22,21 @@ const Auth = () => {
       <form
         className="w-[460px] p-10 m-auto rounded-lg bg-white shadow"
         onSubmit={handleSubmit(onSubmit)}>
-        <InputGroup
-          {...register('email', {
-            required: true,
-            pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-          })}
-          type="email">
-          Адрес электронной почты
-        </InputGroup>
-        <InputGroup {...register('password', { required: true })} type="password">
-          Придумайте пароль
-        </InputGroup>
+        <div className="mb-2">
+          <InputGroup
+            {...register('email', {
+              required: true,
+              pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+            })}
+            type="email">
+            Адрес электронной почты
+          </InputGroup>
+        </div>
+        <div className="mb-4">
+          <InputGroup {...register('password', { required: true })} type="password">
+            Придумайте пароль
+          </InputGroup>
+        </div>
 
         <div className="flex justify-between mb-6">
           <label className="radio-group flex items-center space-x-2 cursor-pointer" htmlFor="user">
@@ -63,7 +67,7 @@ const Auth = () => {
         </div>
         <button
           className={`
-            flex justify-center items-center w-full h-[56px] mb-6
+            flex justify-center items-center w-full h-[56px] mb-2
             text-white bg-primary rounded
             ${(!isDirty || !isValid) && 'opacity-60'}
           `}
@@ -73,7 +77,7 @@ const Auth = () => {
         <Link
           to="/login"
           className="
-            flex items-center justify-center h-[56px] w-full mb-4
+            flex items-center justify-center h-[56px] w-full mb-2
             text-lg text-primary font-medium cursor-pointer
           ">
           У меня есть аккаунт
