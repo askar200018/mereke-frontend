@@ -29,7 +29,6 @@ ReactDOM.render(
             <Route path=":category" element={<Category />} />
             <Route path=":category/:product" element={<ProductDetail />} />
           </Route>
-          {/* <Redirect from="catalog" to="/catalog/restaurants" /> */}
           <Route path="profile" element={<Profile />} />
           <Route path="favourites" element={<Favourites />} />
           <Route index element={<Home />} />
