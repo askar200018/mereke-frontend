@@ -1,16 +1,39 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
+import axios from 'axios';
 import HeaderWithLogo from '../components/HeaderWithLogo';
 import InputGroup from '../components/InputGroup';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../store/isAuthorizedSlice';
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     register,
     formState: { isDirty, isValid },
     handleSubmit,
   } = useForm({ mode: 'onChange' });
+  const [error, setError] = useState(false);
 
-  const onSubmit: SubmitHandler<any> = (data) => {
-    alert(JSON.stringify(data));
+  const dispatch = useDispatch();
+
+  const onSubmit: SubmitHandler<any> = async (data) => {
+    console.log({ data });
+    try {
+      const response = await axios.post('/auth/jwt/create', {
+        email: data.email,
+        password: data.password,
+      });
+      console.log({ response });
+      navigate('/');
+      dispatch(login());
+    } catch (error) {
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -35,7 +58,9 @@ const Login = () => {
             Придумайте пароль
           </InputGroup>
         </div>
-        <p className="mb-6 p-2 text-error bg-error-bg rounded">・Неверный пароль</p>
+        {error && (
+          <p className="mb-6 p-2 text-error bg-error-bg rounded">・Неверный пароль или логин</p>
+        )}
         <button
           className={`
             flex justify-center items-center w-full h-[56px] mb-6

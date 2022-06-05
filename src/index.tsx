@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Routes, HashRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import { store } from './store';
 
 import App from './App';
 import Expenses from './pages/Expenses';
@@ -19,24 +22,27 @@ import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="expenses" element={<Expenses />} />
-          <Route path="invoices" element={<Invoices />} />
-          <Route path="catalog" element={<Catalog />}>
-            <Route path=":category" element={<Category />} />
-            <Route path=":category/:product" element={<ProductDetail />} />
+    <Provider store={store}>
+      <HashRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path="expenses" element={<Expenses />} />
+            <Route path="invoices" element={<Invoices />} />
+            <Route path="catalog" element={<Catalog />}>
+              <Route path=":category" element={<Category />} />
+              <Route path=":category/:product" element={<ProductDetail />} />
+            </Route>
+            <Route path="profile" element={<Profile />} />
+            <Route path="favourites" element={<Favourites />} />
+            <Route index element={<Home />} />
           </Route>
-          <Route path="profile" element={<Profile />} />
-          <Route path="favourites" element={<Favourites />} />
-          <Route index element={<Home />} />
-        </Route>
-        <Route path="auth" element={<Auth />} />
-        <Route path="login" element={<Login />} />
-      </Routes>
-    </HashRouter>
+          <Route path="auth" element={<Auth />} />
+          <Route path="login" element={<Login />} />
+        </Routes>
+      </HashRouter>
+    </Provider>
+    ,
   </React.StrictMode>,
   document.getElementById('root'),
 );
