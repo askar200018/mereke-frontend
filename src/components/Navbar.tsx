@@ -38,7 +38,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <a className="text-sm text-black-text cursor-pointer hover:text-primary">Корзина</a>
+            <a className="text-sm text-black-text cursor-pointer hover:text-primary">Брони</a>
           </li>
         </ul>
         <div className="flex items-center space-x-4">

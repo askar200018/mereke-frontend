@@ -1,18 +1,31 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import InputGroup from '../components/InputGroup';
 import HeaderWithLogo from '../components/HeaderWithLogo';
 
+import API from '../api';
+
 const Auth = () => {
+  const navigate = useNavigate();
   const {
     register,
     formState: { isDirty, isValid },
     handleSubmit,
   } = useForm({ mode: 'onChange' });
 
-  const onSubmit: SubmitHandler<any> = (data) => {
-    alert(JSON.stringify(data));
+  const onSubmit: SubmitHandler<any> = async (data) => {
+    console.log({ data });
+    try {
+      const response = await API.post('/auth/users/', {
+        email: data.email,
+        password: data.password,
+      });
+      navigate('/login');
+      console.log({ response });
+    } catch (error) {
+      console.log({ error });
+    }
   };
 
   return (
