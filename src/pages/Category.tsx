@@ -28,9 +28,6 @@ const Category = () => {
       <div>
         <h3 className="mb-8 text-headline3 font-bold text-black-text">{title}</h3>
         <div className="flex justify-between flex-wrap gap-y-8">
-          {/* <Link to="product">
-            <ProductCard />
-          </Link> */}
           {products.map((product) => (
             <Link key={product.id} to={`/products/${product.id}`}>
               <ProductCard product={product} />

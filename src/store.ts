@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './store/counterSlice';
-import isAuthorizedReducer from './store/isAuthorizedSlice';
+import userReducer from './store/userSlice';
+import bookingsReducer from './store/bookingsStore';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
-    isAuthorized: isAuthorizedReducer,
+    user: userReducer,
+    bookings: bookingsReducer,
   },
 });
 

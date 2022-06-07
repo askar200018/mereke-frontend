@@ -12,7 +12,6 @@ const ProductDetail = () => {
   const [product, setProduct] = useState<IProduct | null>(null);
 
   useEffect(() => {
-    console.log({ params });
     const restaurant = RESTAURANTS.find((r) => r.id === params.productId);
     const artist = ARTISTS.find((a) => a.id === params.productId);
     if (restaurant) {
@@ -21,6 +20,7 @@ const ProductDetail = () => {
       setProduct(artist);
     }
   }, []);
+
   return (
     <div className="pt-4 pb-20">
       <div className="container mx-auto">

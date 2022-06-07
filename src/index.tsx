@@ -39,7 +39,7 @@ ReactDOM.render(
             <Route path="profile" element={<Profile />} />
             <Route path="favourites" element={<Favourites />} />
             <Route path="bookings" element={<Bookings />} />
-            <Route path="basket" element={<Basket />} />
+            <Route path="basket/:productId" element={<Basket />} />
             <Route index element={<Home />} />
           </Route>
           <Route path="auth" element={<Auth />} />

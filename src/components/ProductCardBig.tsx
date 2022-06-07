@@ -3,6 +3,7 @@ import { ReactComponent as FavouriteIcon } from '../assets/icons/favourite.svg';
 import { ReactComponent as FavouriteFillIcon } from '../assets/icons/favourite-fill.svg';
 import productImage from '../assets/images/product-detail.png';
 import { IProduct } from '../interfaces/product.interface';
+import { Link } from 'react-router-dom';
 
 type Props = {
   product: IProduct;
@@ -76,9 +77,11 @@ const ProductCardBig = ({ product }: Props) => {
           </ul>
         </div>
         <div className="flex justify-end">
-          <button className="flex items-center justify-center px-6 h-[46px] text-white bg-primary rounded">
+          <Link
+            to={`/basket/${product.id}`}
+            className="flex items-center justify-center px-6 h-[46px] text-white bg-primary rounded">
             Забронировать
-          </button>
+          </Link>
         </div>
         <button className="absolute top-6 right-6" onClick={() => setIsFavourite(!isFavourite)}>
           <FavouriteIcon className={`${isFavourite ? 'fill-primary' : ''} stroke-primary`} />

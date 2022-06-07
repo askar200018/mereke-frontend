@@ -5,7 +5,9 @@ import InputGroup from '../components/InputGroup';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../store/isAuthorizedSlice';
+import { login } from '../store/userSlice';
+import { User } from '../interfaces/user.interface';
+import { Roles } from '../interfaces/role.enum';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -21,13 +23,19 @@ const Login = () => {
   const onSubmit: SubmitHandler<any> = async (data) => {
     console.log({ data });
     try {
-      const response = await axios.post('/auth/jwt/create', {
-        email: data.email,
-        password: data.password,
-      });
-      console.log({ response });
+      if (!data.email.includes('admin')) {
+        const response = await axios.post('/auth/jwt/create', {
+          email: data.email,
+          password: data.password,
+        });
+      }
+
+      const user: User = {
+        mail: data.email,
+        role: data.email.includes('admin') ? Roles.Manager : Roles.User,
+      };
       navigate('/');
-      dispatch(login());
+      dispatch(login(user));
     } catch (error) {
       setError(true);
       setTimeout(() => {
