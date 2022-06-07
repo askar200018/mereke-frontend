@@ -1,5 +1,5 @@
 import { TextField } from '@mui/material';
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { DatePicker, LocalizationProvider, PickersDay } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,6 +17,7 @@ import { addBooking } from '../store/bookingsStore';
 const Basket = () => {
   const breadcrumbs = ['Корзина'];
   const [bookingDate, setBooingDate] = useState(new Date());
+  const [highlightedDays, setHighlightedDays] = useState([1, 2, 15]);
 
   const params = useParams();
   const [product, setProduct] = useState<IProduct | null>(null);
@@ -74,6 +75,18 @@ const Basket = () => {
                         renderInput={(params) => (
                           <TextField {...params} fullWidth={true} sx={{ marginBottom: '24px' }} />
                         )}
+                        renderDay={(day, _value, DayComponentProps) => {
+                          const isSelected =
+                            !DayComponentProps.outsideCurrentMonth &&
+                            highlightedDays.indexOf(day.getDate()) > 0;
+
+                          return (
+                            <PickersDay
+                              {...DayComponentProps}
+                              sx={{ background: isSelected ? '#FF7485' : '' }}
+                            />
+                          );
+                        }}
                       />
                     </LocalizationProvider>
                     <button

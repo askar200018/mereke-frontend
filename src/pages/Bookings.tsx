@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Breadcrumbs from '../components/Breadcrumbs';
 import ProductCard from '../components/ProductCard';
@@ -11,15 +12,6 @@ const Bookings = () => {
   const getDate = (timestamp: number) => {
     return new Date(timestamp).toDateString();
   };
-
-  // renderSwitch(param) {
-  //   switch(param) {
-  //     case 'foo':
-  //       return 'bar';
-  //     default:
-  //       return 'foo';
-  //   }
-  // }
 
   const renderStatus = (status: Status) => {
     switch (status) {
