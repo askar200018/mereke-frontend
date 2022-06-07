@@ -74,7 +74,7 @@ const ProductCardBig = () => {
         </div>
         <div className="flex justify-end">
           <button className="flex items-center justify-center px-6 h-[46px] text-white bg-primary rounded">
-            Добавить в корзину
+            Забронировать
           </button>
         </div>
         <button className="absolute top-6 right-6" onClick={() => setIsFavourite(!isFavourite)}>

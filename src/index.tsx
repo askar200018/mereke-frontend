@@ -18,6 +18,7 @@ import Favourites from './pages/Favourites';
 import Profile from './pages/Profile';
 import ScrollToTop from './components/ScrollToTop';
 import Bookings from './pages/Bookings';
+import Basket from './pages/Basket';
 
 import './index.scss';
 
@@ -37,6 +38,7 @@ ReactDOM.render(
             <Route path="profile" element={<Profile />} />
             <Route path="favourites" element={<Favourites />} />
             <Route path="bookings" element={<Bookings />} />
+            <Route path="basket" element={<Basket />} />
             <Route index element={<Home />} />
           </Route>
           <Route path="auth" element={<Auth />} />
