@@ -1,15 +1,6 @@
 import productImage from '../assets/images/product-card.png';
 import { ReactComponent as FavouriteIcon } from '../assets/icons/favourite.svg';
-
-interface IProduct {
-  id: string;
-  name: string;
-  places: string;
-  price: string;
-  address: string;
-  description: string;
-  imgUrl: string;
-}
+import { IProduct } from '../interfaces/product.interface';
 
 type Props = {
   showFavourite?: boolean;

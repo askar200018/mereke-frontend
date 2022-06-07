@@ -35,6 +35,7 @@ ReactDOM.render(
               <Route path=":category" element={<Category />} />
               <Route path=":category/:product" element={<ProductDetail />} />
             </Route>
+            <Route path="products/:productId" element={<ProductDetail />} />
             <Route path="profile" element={<Profile />} />
             <Route path="favourites" element={<Favourites />} />
             <Route path="bookings" element={<Bookings />} />
