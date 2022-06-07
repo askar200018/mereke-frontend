@@ -17,6 +17,7 @@ import Category from './pages/Category';
 import Favourites from './pages/Favourites';
 import Profile from './pages/Profile';
 import ScrollToTop from './components/ScrollToTop';
+import Bookings from './pages/Bookings';
 
 import './index.scss';
 
@@ -35,6 +36,7 @@ ReactDOM.render(
             </Route>
             <Route path="profile" element={<Profile />} />
             <Route path="favourites" element={<Favourites />} />
+            <Route path="bookings" element={<Bookings />} />
             <Route index element={<Home />} />
           </Route>
           <Route path="auth" element={<Auth />} />
@@ -42,7 +44,6 @@ ReactDOM.render(
         </Routes>
       </HashRouter>
     </Provider>
-    ,
   </React.StrictMode>,
   document.getElementById('root'),
 );

@@ -38,7 +38,14 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <a className="text-sm text-black-text cursor-pointer hover:text-primary">Брони</a>
+            <NavLink
+              to="bookings"
+              className={({ isActive }) => `
+                text-sm cursor-pointer hover:text-primary
+                ${isActive ? 'text-primary' : 'text-black-text'}
+              `}>
+              Брони
+            </NavLink>
           </li>
         </ul>
         <div className="flex items-center space-x-4">
