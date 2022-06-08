@@ -1,4 +1,5 @@
 import { IProduct } from '../interfaces/product.interface';
+import { NEW_ARTISTS } from './artists';
 
 export const NEW_RESTAURANTS: IProduct[] = [
   {
@@ -94,3 +95,5 @@ export const RESTAURANTS: IProduct[] = [
     imgUrl: '/images/uly-tau.png',
   },
 ];
+
+export const FAVOURITES = [...NEW_RESTAURANTS, ...NEW_ARTISTS];

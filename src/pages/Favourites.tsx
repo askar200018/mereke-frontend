@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Breadcrumbs from '../components/Breadcrumbs';
 import ProductCard from '../components/ProductCard';
+import { FAVOURITES } from '../data/products';
 
 const Favourites = () => {
   return (
@@ -11,18 +12,11 @@ const Favourites = () => {
         </div>
         <h2 className="mb-8 text-5xl font-semibold text-black-text">Избранное</h2>
         <div className="flex justify-between flex-wrap gap-y-8">
-          <Link to="/catalog/restaurants/product">
-            <ProductCard showFavourite={true} />
-          </Link>
-          <Link to="/catalog/restaurants/product">
-            <ProductCard showFavourite={true} />
-          </Link>
-          <Link to="/catalog/restaurants/product">
-            <ProductCard showFavourite={true} />
-          </Link>
-          <Link to="/catalog/restaurants/product">
-            <ProductCard showFavourite={true} />
-          </Link>
+          {FAVOURITES.map((product) => (
+            <Link key={product.id} to={`/products/${product.id}`}>
+              <ProductCard showFavourite={true} product={product} />
+            </Link>
+          ))}
         </div>
       </div>
     </div>

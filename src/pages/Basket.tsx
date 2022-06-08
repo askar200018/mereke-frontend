@@ -1,9 +1,9 @@
-import { TextField } from '@mui/material';
+import { Alert, Button, Slide, Snackbar, TextField } from '@mui/material';
 import { DatePicker, LocalizationProvider, PickersDay } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Breadcrumbs from '../components/Breadcrumbs';
 import ProductCard from '../components/ProductCard';
 import { ARTISTS } from '../data/artists';
@@ -18,6 +18,8 @@ const Basket = () => {
   const breadcrumbs = ['Корзина'];
   const [bookingDate, setBooingDate] = useState(new Date());
   const [highlightedDays, setHighlightedDays] = useState([1, 2, 15]);
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const params = useParams();
   const [product, setProduct] = useState<IProduct | null>(null);
@@ -45,6 +47,19 @@ const Basket = () => {
       date: bookingDate.getTime(),
     };
     dispatch(addBooking(booking));
+    navigate('/bookings?status=create');
+  };
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event: any, reason?: any) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
   };
 
   if (!product) {
@@ -104,6 +119,18 @@ const Basket = () => {
             </li>
           </ul>
         </div>
+        <Button variant="outlined" onClick={handleClick}>
+          Open success snackbar
+        </Button>
+        <Snackbar
+          anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}>
+          <Alert onClose={handleClose} severity="success" sx={{ width: '100%', marginTop: '96px' }}>
+            Бронь добавлена
+          </Alert>
+        </Snackbar>
       </div>
     </div>
   );
