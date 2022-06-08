@@ -36,12 +36,16 @@ export const bookingsSlice = createSlice({
         id: number;
       }>,
     ) => {
-      state.bookings = state.bookings.map((booking) => {
-        if (booking.id === action.payload.id) {
-          return { ...booking, status: action.payload.status };
-        }
-        return booking;
-      });
+      console.log({ payload: action.payload });
+      state.bookings = [
+        ...state.bookings.map((booking) => {
+          if (booking.id === action.payload.id) {
+            return { ...booking, status: action.payload.status };
+          }
+          return booking;
+        }),
+      ];
+      localStorage.setItem('bookings', JSON.stringify(state.bookings));
     },
   },
 });

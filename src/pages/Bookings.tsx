@@ -40,9 +40,9 @@ const Bookings = () => {
     setOpen(false);
   };
 
-  const handleNavigate = () => {
+  const handleNavigate = (id: number) => {
     if (user?.role === Roles.Manager) {
-      navigate('/');
+      navigate(`/bookings/${id}`);
     }
   };
 
@@ -70,14 +70,14 @@ const Bookings = () => {
           <ul>
             {bookingsReversed.map((booking) => (
               <li key={booking.id} className="mb-8">
-                <h4 className=" mb-8 text-headline3 font-bold text-black-text">
+                <h4 className="mb-8 text-headline3 font-bold text-black-text">
                   Бронь №{booking.id}
                 </h4>
                 <div className="flex justify-between space-x-8">
                   <ProductCard product={booking.product as any} />
-                  <button
-                    onClick={handleNavigate}
-                    className="flex-1 py-8 px-7 bg-background rounded-2xl">
+                  <div
+                    onClick={() => handleNavigate(booking.id)}
+                    className="flex-1 py-8 px-7 block bg-background rounded-2xl cursor-pointer">
                     {renderStatus(booking.status)}
                     <ul>
                       <li className="flex justify-between mb-2">
@@ -97,7 +97,7 @@ const Bookings = () => {
                         <span className="text-lg font-normal text-black">+7 (777) 777 77 77</span>
                       </li>
                     </ul>
-                  </button>
+                  </div>
                 </div>
               </li>
             ))}

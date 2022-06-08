@@ -19,6 +19,7 @@ import Profile from './pages/Profile';
 import ScrollToTop from './components/ScrollToTop';
 import Bookings from './pages/Bookings';
 import Basket from './pages/Basket';
+import BookingsDetail from './pages/BookingsDetail';
 
 import './index.scss';
 
@@ -39,6 +40,7 @@ ReactDOM.render(
             <Route path="profile" element={<Profile />} />
             <Route path="favourites" element={<Favourites />} />
             <Route path="bookings" element={<Bookings />} />
+            <Route path="bookings/:bookingId" element={<BookingsDetail />} />
             <Route path="basket/:productId" element={<Basket />} />
             <Route index element={<Home />} />
           </Route>

@@ -6,9 +6,13 @@ export interface UserState {
   isAuthorized: boolean;
 }
 
+const userExists = () => {
+  return !!localStorage.getItem('user');
+};
+
 const initialState: UserState = {
-  user: null,
-  isAuthorized: false,
+  user: userExists() ? JSON.parse(localStorage.getItem('user') || '{}') : null,
+  isAuthorized: userExists(),
 };
 
 export const userSlice = createSlice({
@@ -18,10 +22,12 @@ export const userSlice = createSlice({
     login: (state, action: PayloadAction<User>) => {
       state.isAuthorized = true;
       state.user = action.payload;
+      localStorage.setItem('user', JSON.stringify(state.user));
     },
     logout: (state) => {
       state.isAuthorized = false;
       state.user = null;
+      localStorage.removeItem('user');
     },
   },
 });

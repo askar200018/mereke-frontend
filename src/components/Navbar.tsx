@@ -1,11 +1,13 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as ProfileIcon } from '../assets/icons/profile.svg';
+import { Roles } from '../interfaces/role.enum';
 import { RootState } from '../store';
 
 const Navbar = () => {
   // const navLinks = ['Главная', 'Каталог', 'Избранное', 'Корзина'];
   const isAuthorized = useSelector((state: RootState) => state.user.isAuthorized);
+  const user = useSelector((state: RootState) => state.user.user);
 
   return (
     <div className="bg-background">
@@ -21,36 +23,42 @@ const Navbar = () => {
               Главная
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/catalog"
-              className={({ isActive }) => `
+          {user?.role !== Roles.Manager && (
+            <li>
+              <NavLink
+                to="/catalog"
+                className={({ isActive }) => `
+                  text-sm cursor-pointer hover:text-primary
+                  ${isActive ? 'text-primary' : 'text-black-text'}
+                `}>
+                Каталог
+              </NavLink>
+            </li>
+          )}
+          {user?.role === Roles.User && (
+            <li>
+              <NavLink
+                to="favourites"
+                className={({ isActive }) => `
                 text-sm cursor-pointer hover:text-primary
                 ${isActive ? 'text-primary' : 'text-black-text'}
               `}>
-              Каталог
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="favourites"
-              className={({ isActive }) => `
+                Избранное
+              </NavLink>
+            </li>
+          )}
+          {isAuthorized && (
+            <li>
+              <NavLink
+                to="bookings"
+                className={({ isActive }) => `
                 text-sm cursor-pointer hover:text-primary
                 ${isActive ? 'text-primary' : 'text-black-text'}
               `}>
-              Избранное
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="bookings"
-              className={({ isActive }) => `
-                text-sm cursor-pointer hover:text-primary
-                ${isActive ? 'text-primary' : 'text-black-text'}
-              `}>
-              Брони
-            </NavLink>
-          </li>
+                Брони
+              </NavLink>
+            </li>
+          )}
         </ul>
         <div className="flex items-center space-x-4">
           {isAuthorized && (
